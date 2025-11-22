@@ -9,6 +9,7 @@
       --purple-alt: #9932CC;
       --pink-main: #f4dce6;   /* Soft blush highlight */
       --pink-deep: #d46c8d;   /* Warm Blush */
+      --pink-bright: #ff69b4; /* Title accent pink */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -118,9 +119,9 @@
     }
 
     .hm-tab-indicator.hm-energy {
-      background: linear-gradient(45deg, var(--pink-deep), var(--pink-main));
-      box-shadow: 0 0 28px rgba(242, 155, 196, 0.55),
-                  0 0 44px rgba(230, 103, 163, 0.45),
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main));
+      box-shadow: 0 0 28px rgba(255, 105, 180, 0.55),
+                  0 0 44px rgba(244, 220, 230, 0.42),
                   inset 0 0 26px rgba(255, 215, 0, 0.22);
     }
 
@@ -140,7 +141,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.95fr);
       gap: 16px;
-      align-items: stretch;
+      align-items: start;
     }
 
     @media (max-width: 860px) {
@@ -177,9 +178,9 @@
         radial-gradient(circle at top left, rgba(244, 220, 230, 0.18), transparent 55%),
         radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.16), transparent 55%),
         rgba(5, 3, 20, 0.92);
-      border: 3px solid var(--pink-deep);
+      border: 3px solid var(--pink-bright);
       box-shadow:
-        0 0 32px rgba(212, 108, 141, 0.55),
+        0 0 32px rgba(255, 105, 180, 0.55),
         0 0 52px rgba(244, 220, 230, 0.38);
     }
 
@@ -187,7 +188,7 @@
       font-size: 1.26rem;
       font-weight: 800;
       margin: 4px 0 0;
-      text-align: left;
+      text-align: center;
     }
 
     /* Gradient titles for calm section */
@@ -199,13 +200,41 @@
       color: transparent;
     }
 
+    #energy-panel .hm-wheel-title,
+    #energy-panel .hm-info-title,
+    #energy-panel .hm-result-main-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
     .hm-wheel-subtitle {
       font-size: 0.92rem;
       color: var(--text-muted);
-      margin: 2px 0 6px;
-      max-width: 680px;
+      margin: 2px auto 6px;
+      max-width: 700px;
       text-align: justify;
       line-height: 1.5;
+    }
+
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .hm-wheel-layout {
@@ -234,27 +263,28 @@
       border-radius: 18px;
       padding: 12px 14px 14px;
       background: rgba(8, 5, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.18);
       margin-bottom: 16px;
+      text-align: center;
     }
 
     .hm-wheel-box--energy .hm-controls-box {
-      border-color: rgba(212, 108, 141, 0.5);
-      box-shadow: 0 0 16px rgba(212, 108, 141, 0.35);
+      border-color: rgba(255, 105, 180, 0.55);
+      box-shadow: 0 0 16px rgba(255, 105, 180, 0.28);
     }
 
     .hm-controls-label {
       font-size: 0.9rem;
       color: var(--text-muted);
       margin-bottom: 8px;
-      text-align: justify;
+      text-align: center;
     }
 
     .hm-controls {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      justify-content: flex-start;
+      justify-content: center;
     }
 
     .hm-filter-btn {
@@ -286,8 +316,8 @@
     }
 
     .hm-filter-btn--energy.hm-active {
-      background: linear-gradient(135deg, var(--pink-deep), var(--pink-main));
-      border: 1px solid rgba(212, 108, 141, 0.6);
+      background: linear-gradient(135deg, var(--pink-bright), var(--pink-main));
+      border: 1px solid rgba(255, 105, 180, 0.65);
     }
 
     /* Wheel visual */
@@ -303,15 +333,15 @@
 
     .hm-wheel-pointer {
       position: absolute;
-      top: -8px;
+      top: -6px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
       height: 0;
-      border-left: 24px solid transparent;
-      border-right: 24px solid transparent;
-      border-top: 36px solid #ffffff;
-      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.85));
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 30px solid #ffffff;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
       z-index: 3;
     }
 
@@ -356,22 +386,22 @@
     .hm-wheel-visual--energy {
       box-shadow:
         0 0 26px rgba(244, 220, 230, 0.65),
-        0 0 46px rgba(239, 216, 160, 0.36),
+        0 0 46px rgba(255, 105, 180, 0.38),
         inset 0 0 24px rgba(12, 10, 26, 0.88);
       border-color: rgba(255, 245, 240, 0.94);
       background:
         conic-gradient(
           from -90deg,
-          rgba(244, 220, 230, 0.78) 0deg 36deg,
-          rgba(212, 108, 141, 0.7) 36deg 72deg,
-          rgba(239, 216, 160, 0.6) 72deg 108deg,
-          rgba(244, 220, 230, 0.78) 108deg 144deg,
-          rgba(212, 108, 141, 0.7) 144deg 180deg,
-          rgba(239, 216, 160, 0.6) 180deg 216deg,
-          rgba(244, 220, 230, 0.78) 216deg 252deg,
-          rgba(212, 108, 141, 0.7) 252deg 288deg,
-          rgba(239, 216, 160, 0.6) 288deg 324deg,
-          rgba(244, 220, 230, 0.78) 324deg 360deg
+          rgba(244, 220, 230, 0.8) 0deg 36deg,
+          rgba(255, 105, 180, 0.72) 36deg 72deg,
+          rgba(239, 216, 160, 0.58) 72deg 108deg,
+          rgba(244, 220, 230, 0.8) 108deg 144deg,
+          rgba(255, 105, 180, 0.72) 144deg 180deg,
+          rgba(239, 216, 160, 0.58) 180deg 216deg,
+          rgba(244, 220, 230, 0.8) 216deg 252deg,
+          rgba(255, 105, 180, 0.72) 252deg 288deg,
+          rgba(239, 216, 160, 0.58) 288deg 324deg,
+          rgba(244, 220, 230, 0.8) 324deg 360deg
         );
     }
 
@@ -484,9 +514,9 @@
     }
 
     .hm-spin-btn--energy {
-      background: linear-gradient(135deg, var(--pink-deep), var(--pink-main));
-      box-shadow: 0 10px 26px rgba(212, 108, 141, 0.6);
-      border: 1px solid rgba(212, 108, 141, 0.6);
+      background: linear-gradient(135deg, var(--pink-bright), var(--pink-main));
+      box-shadow: 0 10px 26px rgba(255, 105, 180, 0.6);
+      border: 1px solid rgba(255, 105, 180, 0.65);
     }
 
     .hm-spin-btn:active {
@@ -509,8 +539,10 @@
       flex-direction: column;
       gap: 12px;
       align-items: stretch;
-      max-width: 420px;
+      max-width: 440px;
       margin: 0 auto;
+      align-self: flex-start;
+      padding-top: 2px;
     }
 
     .hm-info-bar {
@@ -526,10 +558,10 @@
     }
 
     .hm-info-bar--energy {
-      border-color: rgba(212, 108, 141, 0.7);
+      border-color: rgba(255, 105, 180, 0.7);
       box-shadow:
-        0 0 20px rgba(212, 108, 141, 0.38),
-        inset 0 0 12px rgba(212, 108, 141, 0.26);
+        0 0 20px rgba(255, 105, 180, 0.38),
+        inset 0 0 12px rgba(255, 105, 180, 0.26);
     }
 
     .hm-info-title {
@@ -550,7 +582,7 @@
 
     .hm-result-box {
       border-radius: var(--radius-xl);
-      padding: 14px 14px 16px;
+      padding: 10px 14px 16px;
       background: transparent;
       border: none;
       min-height: 200px;
@@ -558,10 +590,11 @@
     }
 
     .hm-result-main-title {
-      font-size: 1.08rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+      font-size: 1.32rem;
+      font-weight: 900;
+      margin: 0 0 10px;
       text-align: center;
+      letter-spacing: 0.01em;
     }
 
     .hm-result-card {
@@ -578,9 +611,9 @@
     }
 
     .hm-result-card--energy {
-      border: 3px solid var(--pink-deep);
+      border: 3px solid var(--pink-bright);
       box-shadow:
-        0 0 35px rgba(212, 108, 141, 0.6),
+        0 0 35px rgba(255, 105, 180, 0.58),
         0 0 60px rgba(244, 220, 230, 0.48);
     }
 
@@ -612,6 +645,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, #ff69b4, #f4dce6, #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
