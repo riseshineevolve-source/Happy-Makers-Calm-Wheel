@@ -7,9 +7,9 @@
     :root {
       --purple-main: #8A2BE2;
       --purple-alt: #9932CC;
-      --pink-main: #e5c0d4;   /* Soft blush highlight */
-      --pink-deep: #d46c8d;   /* Warm Blush */
-      --pink-bright: #c23d74; /* Rich rose accent */
+      --pink-main: #d7acc4;   /* Muted blush highlight */
+      --pink-deep: #a53e6b;   /* Deep berry accent */
+      --pink-bright: #8d2f5f; /* Rich plum-rose accent */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -120,9 +120,9 @@
 
     .hm-tab-indicator.hm-energy {
       background: linear-gradient(45deg, var(--pink-bright), var(--pink-deep));
-      box-shadow: 0 0 18px rgba(194, 61, 116, 0.45),
-                  0 0 28px rgba(229, 192, 212, 0.32),
-                  inset 0 0 18px rgba(255, 215, 0, 0.16);
+      box-shadow: 0 0 12px rgba(141, 47, 95, 0.42),
+                  0 0 18px rgba(215, 172, 196, 0.28),
+                  inset 0 0 14px rgba(255, 215, 0, 0.14);
     }
 
     .hm-panel {
@@ -175,13 +175,13 @@
 
     .hm-wheel-box--energy {
       background:
-        radial-gradient(circle at top left, rgba(229, 192, 212, 0.12), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.14), transparent 55%),
+        radial-gradient(circle at top left, rgba(215, 172, 196, 0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.12), transparent 55%),
         rgba(5, 3, 20, 0.92);
       border: 3px solid var(--pink-bright);
       box-shadow:
-        0 0 20px rgba(194, 61, 116, 0.42),
-        0 0 28px rgba(229, 192, 212, 0.22);
+        0 0 16px rgba(141, 47, 95, 0.36),
+        0 0 22px rgba(215, 172, 196, 0.18);
     }
 
     .hm-wheel-title {
@@ -297,6 +297,26 @@
       gap: 10px;
     }
 
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Controls (filters) inside wheel box */
 
     .hm-controls-box {
@@ -314,8 +334,8 @@
     }
 
     .hm-wheel-box--energy .hm-controls-box {
-      border-color: rgba(194, 61, 116, 0.6);
-      box-shadow: 0 0 14px rgba(194, 61, 116, 0.24);
+      border-color: rgba(141, 47, 95, 0.62);
+      box-shadow: 0 0 12px rgba(141, 47, 95, 0.22);
     }
 
     .hm-controls-label {
@@ -362,7 +382,7 @@
 
     .hm-filter-btn--energy.hm-active {
       background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
-      border: 1px solid rgba(194, 61, 116, 0.7);
+      border: 1px solid rgba(141, 47, 95, 0.7);
     }
 
     /* Wheel visual */
@@ -430,23 +450,23 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 16px rgba(194, 61, 116, 0.4),
-        0 0 24px rgba(229, 192, 212, 0.25),
-        inset 0 0 18px rgba(12, 10, 26, 0.82);
-      border-color: rgba(250, 232, 238, 0.92);
+        0 0 14px rgba(141, 47, 95, 0.38),
+        0 0 20px rgba(215, 172, 196, 0.22),
+        inset 0 0 16px rgba(12, 10, 26, 0.82);
+      border-color: rgba(249, 232, 238, 0.9);
       background:
         conic-gradient(
           from -90deg,
-          rgba(194, 61, 116, 0.9) 0deg 36deg,
-          rgba(161, 91, 168, 0.78) 36deg 72deg,
-          rgba(212, 108, 141, 0.86) 72deg 108deg,
-          rgba(229, 192, 212, 0.88) 108deg 144deg,
-          rgba(194, 61, 116, 0.9) 144deg 180deg,
-          rgba(161, 91, 168, 0.78) 180deg 216deg,
-          rgba(212, 108, 141, 0.86) 216deg 252deg,
-          rgba(229, 192, 212, 0.88) 252deg 288deg,
-          rgba(194, 61, 116, 0.9) 288deg 324deg,
-          rgba(161, 91, 168, 0.78) 324deg 360deg
+          rgba(141, 47, 95, 0.9) 0deg 36deg,
+          rgba(92, 34, 80, 0.82) 36deg 72deg,
+          rgba(165, 62, 107, 0.86) 72deg 108deg,
+          rgba(215, 172, 196, 0.88) 108deg 144deg,
+          rgba(141, 47, 95, 0.9) 144deg 180deg,
+          rgba(92, 34, 80, 0.82) 180deg 216deg,
+          rgba(165, 62, 107, 0.86) 216deg 252deg,
+          rgba(215, 172, 196, 0.88) 252deg 288deg,
+          rgba(141, 47, 95, 0.9) 288deg 324deg,
+          rgba(92, 34, 80, 0.82) 324deg 360deg
         );
     }
 
@@ -560,8 +580,8 @@
 
     .hm-spin-btn--energy {
       background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
-      box-shadow: 0 10px 22px rgba(194, 61, 116, 0.5);
-      border: 1px solid rgba(194, 61, 116, 0.64);
+      box-shadow: 0 8px 18px rgba(141, 47, 95, 0.45);
+      border: 1px solid rgba(141, 47, 95, 0.62);
     }
 
     .hm-spin-btn:active {
@@ -585,7 +605,7 @@
       gap: 12px;
       align-items: stretch;
       max-width: 440px;
-      margin: -6px auto 0;
+      margin: -14px auto 0;
       align-self: flex-start;
       padding-top: 0;
     }
@@ -603,10 +623,10 @@
     }
 
     .hm-info-bar--energy {
-      border-color: rgba(194, 61, 116, 0.75);
+      border-color: rgba(141, 47, 95, 0.75);
       box-shadow:
-        0 0 14px rgba(194, 61, 116, 0.3),
-        inset 0 0 10px rgba(194, 61, 116, 0.2);
+        0 0 12px rgba(141, 47, 95, 0.28),
+        inset 0 0 9px rgba(141, 47, 95, 0.2);
     }
 
     .hm-info-title {
@@ -658,8 +678,8 @@
     .hm-result-card--energy {
       border: 3px solid var(--pink-bright);
       box-shadow:
-        0 0 22px rgba(194, 61, 116, 0.45),
-        0 0 36px rgba(229, 192, 212, 0.34);
+        0 0 18px rgba(141, 47, 95, 0.42),
+        0 0 28px rgba(215, 172, 196, 0.3);
     }
 
     .hm-pill-row {
@@ -690,6 +710,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main), #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
