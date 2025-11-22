@@ -138,9 +138,9 @@
       max-width: 1240px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 2.05fr) minmax(0, 0.6fr);
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.95fr);
       gap: 16px;
-      align-items: flex-start;
+      align-items: stretch;
     }
 
     @media (max-width: 860px) {
@@ -153,14 +153,15 @@
 
     .hm-wheel-box {
       border-radius: var(--radius-xl);
-      padding: 18px 18px 20px;
+      padding: 14px 14px 16px;
       background: radial-gradient(circle at top left, rgba(138, 43, 226, 0.18), transparent 55%),
                   radial-gradient(circle at bottom right, rgba(242, 155, 196, 0.16), transparent 55%),
                   rgba(5, 3, 20, 0.92);
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      text-align: center;
+      text-align: left;
+      gap: 12px;
     }
 
     .hm-wheel-box--calm {
@@ -173,20 +174,20 @@
 
     .hm-wheel-box--energy {
       background:
-        radial-gradient(circle at top left, rgba(244, 220, 230, 0.22), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.18), transparent 55%),
+        radial-gradient(circle at top left, rgba(244, 220, 230, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.16), transparent 55%),
         rgba(5, 3, 20, 0.92);
-      border: 3px solid rgba(212, 108, 141, 0.8);
+      border: 3px solid var(--pink-deep);
       box-shadow:
-        0 0 35px rgba(244, 220, 230, 0.55),
-        0 0 60px rgba(212, 108, 141, 0.4);
+        0 0 32px rgba(212, 108, 141, 0.55),
+        0 0 52px rgba(244, 220, 230, 0.38);
     }
 
     .hm-wheel-title {
-      font-size: 1.3rem;
+      font-size: 1.26rem;
       font-weight: 800;
-      margin-bottom: 6px;
-      text-align: center;
+      margin: 4px 0 0;
+      text-align: left;
     }
 
     /* Gradient titles for calm section */
@@ -199,13 +200,32 @@
     }
 
     .hm-wheel-subtitle {
-      font-size: 0.96rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      margin-bottom: 12px;
-      max-width: 720px;
-      margin-inline: auto;
+      margin: 2px 0 6px;
+      max-width: 680px;
       text-align: justify;
       line-height: 1.5;
+    }
+
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     /* Controls (filters) inside wheel box */
@@ -216,6 +236,11 @@
       background: rgba(8, 5, 26, 0.96);
       border: 1px solid rgba(255, 255, 255, 0.12);
       margin-bottom: 16px;
+    }
+
+    .hm-wheel-box--energy .hm-controls-box {
+      border-color: rgba(212, 108, 141, 0.5);
+      box-shadow: 0 0 16px rgba(212, 108, 141, 0.35);
     }
 
     .hm-controls-label {
@@ -262,6 +287,7 @@
 
     .hm-filter-btn--energy.hm-active {
       background: linear-gradient(135deg, var(--pink-deep), var(--pink-main));
+      border: 1px solid rgba(212, 108, 141, 0.6);
     }
 
     /* Wheel visual */
@@ -270,7 +296,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 4px;
       position: relative;
       padding-top: 4px;
     }
@@ -284,8 +310,8 @@
       height: 0;
       border-left: 24px solid transparent;
       border-right: 24px solid transparent;
-      border-top: 36px solid #fffaf4;
-      filter: drop-shadow(0 0 12px rgba(255, 245, 236, 0.9));
+      border-top: 36px solid #ffffff;
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.85));
       z-index: 3;
     }
 
@@ -293,25 +319,9 @@
       content: none;
     }
 
-    .hm-wheel-pointer::after {
-      content: none;
-    }
-
-    .hm-wheel-pointer::after {
-      content: none;
-    }
-
-    .hm-wheel-pointer::after {
-      content: none;
-    }
-
-    .hm-wheel-pointer::after {
-      content: none;
-    }
-
     .hm-wheel-visual {
-      width: 194px;
-      height: 194px;
+      width: 188px;
+      height: 188px;
       border-radius: 50%;
       border: 6px solid #fdf7ff;
       position: relative;
@@ -345,23 +355,23 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 26px rgba(244, 220, 230, 0.6),
-        0 0 46px rgba(239, 216, 160, 0.35),
+        0 0 26px rgba(244, 220, 230, 0.65),
+        0 0 46px rgba(239, 216, 160, 0.36),
         inset 0 0 24px rgba(12, 10, 26, 0.88);
       border-color: rgba(255, 245, 240, 0.94);
       background:
         conic-gradient(
           from -90deg,
-          rgba(244, 220, 230, 0.7) 0deg 36deg,
-          rgba(212, 108, 141, 0.62) 36deg 72deg,
-          rgba(239, 216, 160, 0.58) 72deg 108deg,
-          rgba(244, 220, 230, 0.7) 108deg 144deg,
-          rgba(212, 108, 141, 0.62) 144deg 180deg,
-          rgba(239, 216, 160, 0.58) 180deg 216deg,
-          rgba(244, 220, 230, 0.7) 216deg 252deg,
-          rgba(212, 108, 141, 0.62) 252deg 288deg,
-          rgba(239, 216, 160, 0.58) 288deg 324deg,
-          rgba(244, 220, 230, 0.7) 324deg 360deg
+          rgba(244, 220, 230, 0.78) 0deg 36deg,
+          rgba(212, 108, 141, 0.7) 36deg 72deg,
+          rgba(239, 216, 160, 0.6) 72deg 108deg,
+          rgba(244, 220, 230, 0.78) 108deg 144deg,
+          rgba(212, 108, 141, 0.7) 144deg 180deg,
+          rgba(239, 216, 160, 0.6) 180deg 216deg,
+          rgba(244, 220, 230, 0.78) 216deg 252deg,
+          rgba(212, 108, 141, 0.7) 252deg 288deg,
+          rgba(239, 216, 160, 0.6) 288deg 324deg,
+          rgba(244, 220, 230, 0.78) 324deg 360deg
         );
     }
 
@@ -445,8 +455,8 @@
     .hm-wheel-symbol-slot.hm-selected {
       font-size: 1.4rem;
       text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.95),
-        0 0 20px rgba(255, 215, 0, 0.9);
+        0 0 12px rgba(255, 255, 255, 0.96),
+        0 0 18px rgba(255, 255, 255, 0.9);
       opacity: 1;
     }
 
@@ -470,12 +480,13 @@
       background: linear-gradient(135deg, #8A2BE2, #9932CC);
       box-shadow: 0 10px 26px rgba(138, 43, 226, 0.7);
       transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .hm-spin-btn--energy {
       background: linear-gradient(135deg, var(--pink-deep), var(--pink-main));
-      box-shadow: 0 10px 26px rgba(212, 108, 141, 0.55);
+      box-shadow: 0 10px 26px rgba(212, 108, 141, 0.6);
+      border: 1px solid rgba(212, 108, 141, 0.6);
     }
 
     .hm-spin-btn:active {
@@ -484,10 +495,9 @@
     }
 
     .hm-wheel-note {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      max-width: 420px;
-      margin-inline: auto;
+      max-width: 100%;
       text-align: justify;
       line-height: 1.5;
     }
@@ -497,9 +507,9 @@
     .hm-text-column {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       align-items: stretch;
-      max-width: 320px;
+      max-width: 420px;
       margin: 0 auto;
     }
 
@@ -512,45 +522,45 @@
       box-shadow:
         0 0 16px rgba(255, 215, 0, 0.24),
         inset 0 0 12px rgba(138, 43, 226, 0.12);
-      max-width: 320px;
+      max-width: 100%;
     }
 
     .hm-info-bar--energy {
-      border-color: rgba(242, 155, 196, 0.26);
+      border-color: rgba(212, 108, 141, 0.7);
       box-shadow:
-        0 0 16px rgba(242, 155, 196, 0.24),
-        inset 0 0 12px rgba(230, 103, 163, 0.16);
+        0 0 20px rgba(212, 108, 141, 0.38),
+        inset 0 0 12px rgba(212, 108, 141, 0.26);
     }
 
     .hm-info-title {
-      font-size: 0.9rem;
+      font-size: 0.94rem;
       font-weight: 700;
       margin-bottom: 4px;
       text-align: center;
     }
 
     .hm-info-text {
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.55;
       text-align: justify;
       margin: 0 auto;
-      max-width: 700px;
+      max-width: 680px;
     }
 
     .hm-result-box {
       border-radius: var(--radius-xl);
-      padding: 12px 12px 14px;
+      padding: 14px 14px 16px;
       background: transparent;
       border: none;
-      min-height: 150px;
+      min-height: 200px;
       width: 100%;
     }
 
     .hm-result-main-title {
-      font-size: 1.02rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 8px;
       text-align: center;
     }
 
@@ -570,8 +580,8 @@
     .hm-result-card--energy {
       border: 3px solid var(--pink-deep);
       box-shadow:
-        0 0 35px rgba(255, 105, 180, 0.8),
-        0 0 60px rgba(255, 20, 147, 0.5);
+        0 0 35px rgba(212, 108, 141, 0.6),
+        0 0 60px rgba(244, 220, 230, 0.48);
     }
 
     .hm-pill-row {
@@ -602,6 +612,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, #f4dce6, #d46c8d, #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -729,53 +745,57 @@
             One-click, one-minute reset for the whole family. Use it when everyone needs a small pause, a soft landing or a calmer body and brain. Let the Happy Makers pick one tiny step toward more ease.
           </div>
 
-          <div class="hm-controls-box">
-            <div class="hm-controls-label">Choose what the wheel can pick from:</div>
-            <div class="hm-controls" id="calm-filters">
-              <button class="hm-filter-btn hm-filter-btn--calm hm-active" data-filter="all">
-                <span>All types</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--calm" data-filter="1-minute practice">
-                <span>1-minute</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-movement">
-                <span>Micro-movement</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-breath">
-                <span>Micro-breath</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-connection">
-                <span>Micro-connection</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="hm-wheel-visual-wrapper">
-            <div class="hm-wheel-pointer"></div>
-            <div class="hm-wheel-visual hm-wheel-visual--calm" id="calm-wheel-visual">
-              <div class="hm-wheel-ring"></div>
-              <div class="hm-wheel-symbols">
-                <!-- 10 minimalist calm icons (mindfulness, calm, connection, family) -->
-                <div class="hm-wheel-symbol-slot">◦</div>
-                <div class="hm-wheel-symbol-slot">☾</div>
-                <div class="hm-wheel-symbol-slot">༄</div>
-                <div class="hm-wheel-symbol-slot">✧</div>
-                <div class="hm-wheel-symbol-slot">⊙</div>
-                <div class="hm-wheel-symbol-slot">ღ</div>
-                <div class="hm-wheel-symbol-slot">☁︎</div>
-                <div class="hm-wheel-symbol-slot">❖</div>
-                <div class="hm-wheel-symbol-slot">♾</div>
-                <div class="hm-wheel-symbol-slot">✦</div>
+          <div class="hm-wheel-layout">
+            <div class="hm-wheel-visual-stack">
+              <div class="hm-wheel-visual-wrapper">
+                <div class="hm-wheel-pointer"></div>
+                <div class="hm-wheel-visual hm-wheel-visual--calm" id="calm-wheel-visual">
+                  <div class="hm-wheel-ring"></div>
+                  <div class="hm-wheel-symbols">
+                    <!-- 10 minimalist calm icons (mindfulness, calm, connection, family) -->
+                    <div class="hm-wheel-symbol-slot">◦</div>
+                    <div class="hm-wheel-symbol-slot">☾</div>
+                    <div class="hm-wheel-symbol-slot">༄</div>
+                    <div class="hm-wheel-symbol-slot">✧</div>
+                    <div class="hm-wheel-symbol-slot">⊙</div>
+                    <div class="hm-wheel-symbol-slot">ღ</div>
+                    <div class="hm-wheel-symbol-slot">☁︎</div>
+                    <div class="hm-wheel-symbol-slot">❖</div>
+                    <div class="hm-wheel-symbol-slot">♾</div>
+                    <div class="hm-wheel-symbol-slot">✦</div>
+                  </div>
+                  <div class="hm-wheel-center-dot"></div>
+                </div>
               </div>
-              <div class="hm-wheel-center-dot"></div>
+              <button class="hm-spin-btn" id="calm-spin-btn">
+                🎡 Start spinning
+              </button>
             </div>
-          </div>
-
-          <button class="hm-spin-btn" id="calm-spin-btn">
-            🎡 Start spinning
-          </button>
-          <div class="hm-wheel-note">
-            Click once to spin, click again to stop - the pointer at the top shows your icon and the Happy Makers reveal a calm-down micro-practice to try together.
+            <div class="hm-wheel-info-stack">
+              <div class="hm-controls-box">
+                <div class="hm-controls-label">Choose what the wheel can pick from:</div>
+                <div class="hm-controls" id="calm-filters">
+                  <button class="hm-filter-btn hm-filter-btn--calm hm-active" data-filter="all">
+                    <span>All types</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--calm" data-filter="1-minute practice">
+                    <span>1-minute</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-movement">
+                    <span>Micro-movement</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-breath">
+                    <span>Micro-breath</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--calm" data-filter="Micro-connection">
+                    <span>Micro-connection</span>
+                  </button>
+                </div>
+              </div>
+              <div class="hm-wheel-note">
+                Click once to spin, click again to stop - the pointer at the top shows your icon and the Happy Makers reveal a calm-down micro-practice to try together.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -811,53 +831,57 @@
             One-minute boosts for days that feel a little slow. Use it when everyone needs gentle movement, a brighter mood or a quick wake-up spark - without overwhelming anyone.
           </div>
 
-          <div class="hm-controls-box">
-            <div class="hm-controls-label">Choose what the wheel can pick from:</div>
-            <div class="hm-controls" id="energy-filters">
-              <button class="hm-filter-btn hm-filter-btn--energy hm-active" data-filter="all">
-                <span>All types</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--energy" data-filter="1-minute practice">
-                <span>1-minute</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-movement">
-                <span>Micro-movement</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-breath">
-                <span>Micro-breath</span>
-              </button>
-              <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-connection">
-                <span>Micro-connection</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="hm-wheel-visual-wrapper">
-            <div class="hm-wheel-pointer"></div>
-            <div class="hm-wheel-visual hm-wheel-visual--energy" id="energy-wheel-visual">
-              <div class="hm-wheel-ring"></div>
-              <div class="hm-wheel-symbols">
-                <!-- 10 minimalist energy icons (boost, movement, joy) -->
-                <div class="hm-wheel-symbol-slot">✺</div>
-                <div class="hm-wheel-symbol-slot">⚡</div>
-                <div class="hm-wheel-symbol-slot">✶</div>
-                <div class="hm-wheel-symbol-slot">✷</div>
-                <div class="hm-wheel-symbol-slot">✹</div>
-                <div class="hm-wheel-symbol-slot">★</div>
-                <div class="hm-wheel-symbol-slot">❇</div>
-                <div class="hm-wheel-symbol-slot">✴</div>
-                <div class="hm-wheel-symbol-slot">➤</div>
-                <div class="hm-wheel-symbol-slot">❉</div>
+          <div class="hm-wheel-layout">
+            <div class="hm-wheel-visual-stack">
+              <div class="hm-wheel-visual-wrapper">
+                <div class="hm-wheel-pointer"></div>
+                <div class="hm-wheel-visual hm-wheel-visual--energy" id="energy-wheel-visual">
+                  <div class="hm-wheel-ring"></div>
+                  <div class="hm-wheel-symbols">
+                    <!-- 10 minimalist energy icons (boost, movement, joy) -->
+                    <div class="hm-wheel-symbol-slot">✺</div>
+                    <div class="hm-wheel-symbol-slot">⚡</div>
+                    <div class="hm-wheel-symbol-slot">✶</div>
+                    <div class="hm-wheel-symbol-slot">✷</div>
+                    <div class="hm-wheel-symbol-slot">✹</div>
+                    <div class="hm-wheel-symbol-slot">★</div>
+                    <div class="hm-wheel-symbol-slot">❇</div>
+                    <div class="hm-wheel-symbol-slot">✴</div>
+                    <div class="hm-wheel-symbol-slot">➤</div>
+                    <div class="hm-wheel-symbol-slot">❉</div>
+                  </div>
+                  <div class="hm-wheel-center-dot"></div>
+                </div>
               </div>
-              <div class="hm-wheel-center-dot"></div>
+              <button class="hm-spin-btn hm-spin-btn--energy" id="energy-spin-btn">
+                ⚡ Start spinning
+              </button>
             </div>
-          </div>
-
-          <button class="hm-spin-btn hm-spin-btn--energy" id="energy-spin-btn">
-            ⚡ Start spinning
-          </button>
-          <div class="hm-wheel-note">
-            Click once to spin, click again to stop - the pointer at the top shows your icon and the Happy Makers send a playful energy micro-boost straight into your day.
+            <div class="hm-wheel-info-stack">
+              <div class="hm-controls-box">
+                <div class="hm-controls-label">Choose what the wheel can pick from:</div>
+                <div class="hm-controls" id="energy-filters">
+                  <button class="hm-filter-btn hm-filter-btn--energy hm-active" data-filter="all">
+                    <span>All types</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--energy" data-filter="1-minute practice">
+                    <span>1-minute</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-movement">
+                    <span>Micro-movement</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-breath">
+                    <span>Micro-breath</span>
+                  </button>
+                  <button class="hm-filter-btn hm-filter-btn--energy" data-filter="Micro-connection">
+                    <span>Micro-connection</span>
+                  </button>
+                </div>
+              </div>
+              <div class="hm-wheel-note">
+                Click once to spin, click again to stop - the pointer at the top shows your icon and the Happy Makers send a playful energy micro-boost straight into your day.
+              </div>
+            </div>
           </div>
         </div>
 
