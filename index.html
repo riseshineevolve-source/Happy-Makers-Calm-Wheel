@@ -9,7 +9,7 @@
       --purple-alt: #9932CC;
       --pink-main: #f4dce6;   /* Soft blush highlight */
       --pink-deep: #d46c8d;   /* Warm Blush */
-      --pink-bright: #ff69b4; /* Title accent pink */
+      --pink-bright: #ff5c9d; /* Title accent pink */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -180,8 +180,8 @@
         rgba(5, 3, 20, 0.92);
       border: 3px solid var(--pink-bright);
       box-shadow:
-        0 0 32px rgba(255, 105, 180, 0.55),
-        0 0 52px rgba(244, 220, 230, 0.38);
+        0 0 26px rgba(255, 92, 157, 0.55),
+        0 0 40px rgba(244, 220, 230, 0.34);
     }
 
     .hm-wheel-title {
@@ -257,6 +257,26 @@
       gap: 10px;
     }
 
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Controls (filters) inside wheel box */
 
     .hm-controls-box {
@@ -268,9 +288,14 @@
       text-align: center;
     }
 
+    .hm-wheel-box--calm .hm-controls-box {
+      border-color: rgba(138, 43, 226, 0.5);
+      box-shadow: 0 0 14px rgba(138, 43, 226, 0.25);
+    }
+
     .hm-wheel-box--energy .hm-controls-box {
-      border-color: rgba(255, 105, 180, 0.55);
-      box-shadow: 0 0 16px rgba(255, 105, 180, 0.28);
+      border-color: rgba(255, 92, 157, 0.55);
+      box-shadow: 0 0 16px rgba(255, 92, 157, 0.28);
     }
 
     .hm-controls-label {
@@ -317,7 +342,7 @@
 
     .hm-filter-btn--energy.hm-active {
       background: linear-gradient(135deg, var(--pink-bright), var(--pink-main));
-      border: 1px solid rgba(255, 105, 180, 0.65);
+      border: 1px solid rgba(255, 92, 157, 0.7);
     }
 
     /* Wheel visual */
@@ -333,15 +358,15 @@
 
     .hm-wheel-pointer {
       position: absolute;
-      top: -6px;
+      top: -4px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
       height: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-top: 30px solid #ffffff;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 24px solid #ffffff;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
       z-index: 3;
     }
 
@@ -385,23 +410,23 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 26px rgba(244, 220, 230, 0.65),
-        0 0 46px rgba(255, 105, 180, 0.38),
-        inset 0 0 24px rgba(12, 10, 26, 0.88);
-      border-color: rgba(255, 245, 240, 0.94);
+        0 0 22px rgba(244, 220, 230, 0.5),
+        0 0 36px rgba(255, 92, 157, 0.35),
+        inset 0 0 18px rgba(12, 10, 26, 0.82);
+      border-color: rgba(255, 240, 236, 0.95);
       background:
         conic-gradient(
           from -90deg,
-          rgba(244, 220, 230, 0.8) 0deg 36deg,
-          rgba(255, 105, 180, 0.72) 36deg 72deg,
-          rgba(239, 216, 160, 0.58) 72deg 108deg,
-          rgba(244, 220, 230, 0.8) 108deg 144deg,
-          rgba(255, 105, 180, 0.72) 144deg 180deg,
-          rgba(239, 216, 160, 0.58) 180deg 216deg,
-          rgba(244, 220, 230, 0.8) 216deg 252deg,
-          rgba(255, 105, 180, 0.72) 252deg 288deg,
-          rgba(239, 216, 160, 0.58) 288deg 324deg,
-          rgba(244, 220, 230, 0.8) 324deg 360deg
+          rgba(255, 92, 157, 0.82) 0deg 36deg,
+          rgba(244, 214, 166, 0.75) 36deg 72deg,
+          rgba(212, 108, 141, 0.82) 72deg 108deg,
+          rgba(255, 244, 245, 0.9) 108deg 144deg,
+          rgba(255, 92, 157, 0.82) 144deg 180deg,
+          rgba(244, 214, 166, 0.75) 180deg 216deg,
+          rgba(212, 108, 141, 0.82) 216deg 252deg,
+          rgba(255, 244, 245, 0.9) 252deg 288deg,
+          rgba(255, 92, 157, 0.82) 288deg 324deg,
+          rgba(244, 214, 166, 0.75) 324deg 360deg
         );
     }
 
@@ -515,8 +540,8 @@
 
     .hm-spin-btn--energy {
       background: linear-gradient(135deg, var(--pink-bright), var(--pink-main));
-      box-shadow: 0 10px 26px rgba(255, 105, 180, 0.6);
-      border: 1px solid rgba(255, 105, 180, 0.65);
+      box-shadow: 0 10px 26px rgba(255, 92, 157, 0.58);
+      border: 1px solid rgba(255, 92, 157, 0.68);
     }
 
     .hm-spin-btn:active {
@@ -540,9 +565,9 @@
       gap: 12px;
       align-items: stretch;
       max-width: 440px;
-      margin: 0 auto;
+      margin: -6px auto 0;
       align-self: flex-start;
-      padding-top: 2px;
+      padding-top: 0;
     }
 
     .hm-info-bar {
@@ -558,10 +583,10 @@
     }
 
     .hm-info-bar--energy {
-      border-color: rgba(255, 105, 180, 0.7);
+      border-color: rgba(255, 92, 157, 0.75);
       box-shadow:
-        0 0 20px rgba(255, 105, 180, 0.38),
-        inset 0 0 12px rgba(255, 105, 180, 0.26);
+        0 0 18px rgba(255, 92, 157, 0.36),
+        inset 0 0 12px rgba(255, 92, 157, 0.24);
     }
 
     .hm-info-title {
@@ -645,6 +670,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, #ff69b4, #f4dce6, #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
