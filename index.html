@@ -7,9 +7,9 @@
     :root {
       --purple-main: #8A2BE2;
       --purple-alt: #9932CC;
-      --pink-main: #f4b7d7;   /* Softer HotPink */
-      --pink-deep: #de7fad;   /* Muted DeepPink */
-      --gold: #ffd700;
+      --pink-main: #f4dce6;   /* Soft blush highlight */
+      --pink-deep: #d46c8d;   /* Warm Blush */
+      --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
       --text-muted: #b9b3d9;
@@ -35,8 +35,8 @@
     .hm-page {
       max-width: 1280px;
       width: 100%;
-      margin: 32px auto 40px;
-      padding: 0 18px;
+      margin: 28px auto 36px;
+      padding: 0 16px;
     }
 
     .hm-page-header {
@@ -138,8 +138,8 @@
       max-width: 1240px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.7fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 2.05fr) minmax(0, 0.6fr);
+      gap: 16px;
       align-items: flex-start;
     }
 
@@ -153,7 +153,7 @@
 
     .hm-wheel-box {
       border-radius: var(--radius-xl);
-      padding: 18px 18px 22px;
+      padding: 18px 18px 20px;
       background: radial-gradient(circle at top left, rgba(138, 43, 226, 0.18), transparent 55%),
                   radial-gradient(circle at bottom right, rgba(242, 155, 196, 0.16), transparent 55%),
                   rgba(5, 3, 20, 0.92);
@@ -172,11 +172,14 @@
     }
 
     .hm-wheel-box--energy {
-      background: #000000;
-      border: 3px solid var(--pink-deep);
+      background:
+        radial-gradient(circle at top left, rgba(244, 220, 230, 0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.18), transparent 55%),
+        rgba(5, 3, 20, 0.92);
+      border: 3px solid rgba(212, 108, 141, 0.8);
       box-shadow:
-        0 0 35px rgba(242, 155, 196, 0.55),
-        0 0 60px rgba(230, 103, 163, 0.4);
+        0 0 35px rgba(244, 220, 230, 0.55),
+        0 0 60px rgba(212, 108, 141, 0.4);
     }
 
     .hm-wheel-title {
@@ -274,15 +277,15 @@
 
     .hm-wheel-pointer {
       position: absolute;
-      top: -10px;
+      top: -8px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
       height: 0;
       border-left: 24px solid transparent;
       border-right: 24px solid transparent;
-      border-top: 34px solid #fdf7ff;
-      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+      border-top: 36px solid #fffaf4;
+      filter: drop-shadow(0 0 12px rgba(255, 245, 236, 0.9));
       z-index: 3;
     }
 
@@ -302,9 +305,13 @@
       content: none;
     }
 
+    .hm-wheel-pointer::after {
+      content: none;
+    }
+
     .hm-wheel-visual {
-      width: 190px;
-      height: 190px;
+      width: 194px;
+      height: 194px;
       border-radius: 50%;
       border: 6px solid #fdf7ff;
       position: relative;
@@ -338,23 +345,23 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 28px rgba(245, 189, 221, 0.55),
-        0 0 48px rgba(214, 170, 255, 0.32),
-        inset 0 0 24px rgba(12, 10, 26, 0.9);
-      border-color: rgba(255, 246, 234, 0.92);
+        0 0 26px rgba(244, 220, 230, 0.6),
+        0 0 46px rgba(239, 216, 160, 0.35),
+        inset 0 0 24px rgba(12, 10, 26, 0.88);
+      border-color: rgba(255, 245, 240, 0.94);
       background:
         conic-gradient(
           from -90deg,
-          rgba(248, 207, 225, 0.58) 0deg 36deg,
-          rgba(214, 126, 165, 0.55) 36deg 72deg,
-          rgba(230, 195, 132, 0.52) 72deg 108deg,
-          rgba(248, 207, 225, 0.58) 108deg 144deg,
-          rgba(214, 126, 165, 0.55) 144deg 180deg,
-          rgba(230, 195, 132, 0.52) 180deg 216deg,
-          rgba(248, 207, 225, 0.58) 216deg 252deg,
-          rgba(214, 126, 165, 0.55) 252deg 288deg,
-          rgba(230, 195, 132, 0.52) 288deg 324deg,
-          rgba(248, 207, 225, 0.58) 324deg 360deg
+          rgba(244, 220, 230, 0.7) 0deg 36deg,
+          rgba(212, 108, 141, 0.62) 36deg 72deg,
+          rgba(239, 216, 160, 0.58) 72deg 108deg,
+          rgba(244, 220, 230, 0.7) 108deg 144deg,
+          rgba(212, 108, 141, 0.62) 144deg 180deg,
+          rgba(239, 216, 160, 0.58) 180deg 216deg,
+          rgba(244, 220, 230, 0.7) 216deg 252deg,
+          rgba(212, 108, 141, 0.62) 252deg 288deg,
+          rgba(239, 216, 160, 0.58) 288deg 324deg,
+          rgba(244, 220, 230, 0.7) 324deg 360deg
         );
     }
 
@@ -399,7 +406,7 @@
 
     /* Energy icons color */
     .hm-wheel-visual--energy .hm-wheel-symbol-slot {
-      color: #ffe6f2;
+      color: #fff7f3;
     }
 
     /* 10 positions on wheel (pizza) */
@@ -468,7 +475,7 @@
 
     .hm-spin-btn--energy {
       background: linear-gradient(135deg, var(--pink-deep), var(--pink-main));
-      box-shadow: 0 10px 26px rgba(242, 155, 196, 0.6);
+      box-shadow: 0 10px 26px rgba(212, 108, 141, 0.55);
     }
 
     .hm-spin-btn:active {
@@ -490,9 +497,9 @@
     .hm-text-column {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       align-items: stretch;
-      max-width: 360px;
+      max-width: 320px;
       margin: 0 auto;
     }
 
@@ -505,7 +512,7 @@
       box-shadow:
         0 0 16px rgba(255, 215, 0, 0.24),
         inset 0 0 12px rgba(138, 43, 226, 0.12);
-      max-width: 360px;
+      max-width: 320px;
     }
 
     .hm-info-bar--energy {
@@ -523,12 +530,12 @@
     }
 
     .hm-info-text {
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.55;
       text-align: justify;
       margin: 0 auto;
-      max-width: 760px;
+      max-width: 700px;
     }
 
     .hm-result-box {
@@ -595,6 +602,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, #f4dce6, #d46c8d, #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
