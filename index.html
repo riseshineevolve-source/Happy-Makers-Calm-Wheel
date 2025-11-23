@@ -7,9 +7,9 @@
     :root {
       --purple-main: #8A2BE2;
       --purple-alt: #9932CC;
-      --pink-main: #ff58c7;   /* Vivid neon blush */
-      --pink-deep: #a32bff;   /* Electric violet */
-      --pink-bright: #ff85e6; /* Soft electric rose */
+      --pink-main: #d83b8d;   /* Warm berry rose */
+      --pink-deep: #b22da5;   /* Lush magenta */
+      --pink-bright: #f190c0; /* Blush highlight */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -357,6 +357,26 @@
       gap: 10px;
     }
 
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Controls (filters) inside wheel box */
 
     .hm-controls-box {
@@ -467,16 +487,12 @@
       background:
         conic-gradient(
           from -90deg,
-          rgba(138, 43, 226, 0.78) 0deg 36deg,
-          rgba(153, 50, 204, 0.72) 36deg 72deg,
-          rgba(255, 105, 180, 0.8) 72deg 108deg,
-          rgba(255, 182, 193, 0.78) 108deg 144deg,
-          rgba(138, 43, 226, 0.78) 144deg 180deg,
-          rgba(153, 50, 204, 0.72) 180deg 216deg,
-          rgba(255, 105, 180, 0.8) 216deg 252deg,
-          rgba(255, 182, 193, 0.78) 252deg 288deg,
-          rgba(138, 43, 226, 0.78) 288deg 324deg,
-          rgba(153, 50, 204, 0.72) 324deg 360deg
+          rgba(190, 150, 255, 0.82) 0deg 60deg,
+          rgba(163, 118, 246, 0.86) 60deg 120deg,
+          rgba(218, 177, 255, 0.86) 120deg 180deg,
+          rgba(146, 93, 228, 0.88) 180deg 240deg,
+          rgba(232, 198, 255, 0.88) 240deg 300deg,
+          rgba(172, 115, 238, 0.86) 300deg 360deg
         );
     }
 
@@ -490,23 +506,19 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 16px rgba(255, 88, 199, 0.35),
-        0 0 22px rgba(163, 43, 255, 0.22),
+        0 0 16px rgba(216, 59, 141, 0.36),
+        0 0 22px rgba(162, 40, 195, 0.22),
         inset 0 0 14px rgba(12, 10, 26, 0.82);
       border-color: rgba(255, 234, 247, 0.92);
       background:
         conic-gradient(
           from -90deg,
-          rgba(255, 88, 199, 0.9) 0deg 36deg,
-          rgba(163, 43, 255, 0.86) 36deg 72deg,
-          rgba(255, 133, 230, 0.9) 72deg 108deg,
-          rgba(247, 238, 255, 0.94) 108deg 144deg,
-          rgba(255, 88, 199, 0.9) 144deg 180deg,
-          rgba(163, 43, 255, 0.86) 180deg 216deg,
-          rgba(255, 133, 230, 0.9) 216deg 252deg,
-          rgba(247, 238, 255, 0.94) 252deg 288deg,
-          rgba(255, 88, 199, 0.9) 288deg 324deg,
-          rgba(163, 43, 255, 0.86) 324deg 360deg
+          rgba(216, 59, 141, 0.9) 0deg 60deg,
+          rgba(178, 45, 165, 0.9) 60deg 120deg,
+          rgba(243, 144, 191, 0.94) 120deg 180deg,
+          rgba(189, 79, 196, 0.92) 180deg 240deg,
+          rgba(255, 222, 243, 0.95) 240deg 300deg,
+          rgba(229, 104, 184, 0.9) 300deg 360deg
         );
     }
 
@@ -544,47 +556,30 @@
       transition: font-size 0.15s ease, text-shadow 0.15s ease, opacity 0.15s ease;
     }
 
-    /* Calm icons color */
-    .hm-wheel-visual--calm .hm-wheel-symbol-slot {
-      color: #d9c6ff;
+    /* Icon color */
+    .hm-wheel-visual .hm-wheel-symbol-slot {
+      color: #ffffff;
     }
 
-    /* Energy icons color */
-    .hm-wheel-visual--energy .hm-wheel-symbol-slot {
-      color: #fff1fa;
-    }
-
-    /* 10 positions on wheel (pizza) */
+    /* 6 positions on wheel */
 
     .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(1) {
       transform: translate(-50%, -50%) rotate(0deg) translate(0, -68px) rotate(0deg);
     }
     .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(2) {
-      transform: translate(-50%, -50%) rotate(36deg) translate(0, -68px) rotate(-36deg);
+      transform: translate(-50%, -50%) rotate(60deg) translate(0, -68px) rotate(-60deg);
     }
     .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(3) {
-      transform: translate(-50%, -50%) rotate(72deg) translate(0, -68px) rotate(-72deg);
+      transform: translate(-50%, -50%) rotate(120deg) translate(0, -68px) rotate(-120deg);
     }
     .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(4) {
-      transform: translate(-50%, -50%) rotate(108deg) translate(0, -68px) rotate(-108deg);
-    }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(5) {
-      transform: translate(-50%, -50%) rotate(144deg) translate(0, -68px) rotate(-144deg);
-    }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(6) {
       transform: translate(-50%, -50%) rotate(180deg) translate(0, -68px) rotate(-180deg);
     }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(7) {
-      transform: translate(-50%, -50%) rotate(216deg) translate(0, -68px) rotate(-216deg);
+    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(5) {
+      transform: translate(-50%, -50%) rotate(240deg) translate(0, -68px) rotate(-240deg);
     }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(8) {
-      transform: translate(-50%, -50%) rotate(252deg) translate(0, -68px) rotate(-252deg);
-    }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(9) {
-      transform: translate(-50%, -50%) rotate(288deg) translate(0, -68px) rotate(-288deg);
-    }
-    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(10) {
-      transform: translate(-50%, -50%) rotate(324deg) translate(0, -68px) rotate(-324deg);
+    .hm-wheel-symbols .hm-wheel-symbol-slot:nth-child(6) {
+      transform: translate(-50%, -50%) rotate(300deg) translate(0, -68px) rotate(-300deg);
     }
 
     .hm-wheel-symbol-slot.hm-selected {
@@ -779,6 +774,12 @@
     }
 
     .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main), #efd8a0);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
       background: linear-gradient(45deg, #ff69b4, #f4dce6, #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
@@ -926,17 +927,12 @@
                 <div class="hm-wheel-visual hm-wheel-visual--calm" id="calm-wheel-visual">
                   <div class="hm-wheel-ring"></div>
                   <div class="hm-wheel-symbols">
-                    <!-- 10 minimalist calm icons (mindfulness, calm, connection, family) -->
-                    <div class="hm-wheel-symbol-slot">◦</div>
-                    <div class="hm-wheel-symbol-slot">☾</div>
-                    <div class="hm-wheel-symbol-slot">༄</div>
-                    <div class="hm-wheel-symbol-slot">✧</div>
-                    <div class="hm-wheel-symbol-slot">⊙</div>
-                    <div class="hm-wheel-symbol-slot">ღ</div>
-                    <div class="hm-wheel-symbol-slot">☁︎</div>
-                    <div class="hm-wheel-symbol-slot">❖</div>
-                    <div class="hm-wheel-symbol-slot">♾</div>
-                    <div class="hm-wheel-symbol-slot">✦</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Luli">🌙</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Dilo">⚽</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Alio">⚡</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Nini">💖</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Mimi">✨</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Bibi">👑</div>
                   </div>
                   <div class="hm-wheel-center-dot"></div>
                 </div>
@@ -1012,17 +1008,12 @@
                 <div class="hm-wheel-visual hm-wheel-visual--energy" id="energy-wheel-visual">
                   <div class="hm-wheel-ring"></div>
                   <div class="hm-wheel-symbols">
-                    <!-- 10 minimalist energy icons (boost, movement, joy) -->
-                    <div class="hm-wheel-symbol-slot">✺</div>
-                    <div class="hm-wheel-symbol-slot">⚡</div>
-                    <div class="hm-wheel-symbol-slot">✶</div>
-                    <div class="hm-wheel-symbol-slot">✷</div>
-                    <div class="hm-wheel-symbol-slot">✹</div>
-                    <div class="hm-wheel-symbol-slot">★</div>
-                    <div class="hm-wheel-symbol-slot">❇</div>
-                    <div class="hm-wheel-symbol-slot">✴</div>
-                    <div class="hm-wheel-symbol-slot">➤</div>
-                    <div class="hm-wheel-symbol-slot">❉</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Luli">🌙</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Dilo">⚽</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Alio">⚡</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Nini">💖</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Mimi">✨</div>
+                    <div class="hm-wheel-symbol-slot" data-character="Bibi">👑</div>
                   </div>
                   <div class="hm-wheel-center-dot"></div>
                 </div>
@@ -1810,6 +1801,7 @@
 
       let currentFilter = "all";
       let isSpinning = false;
+      const slotCharacters = ["Luli", "Dilo", "Alio", "Nini", "Mimi", "Bibi"];
 
       const spinBtn = document.getElementById(spinButtonId);
       const resultEl = document.getElementById(resultContainerId);
@@ -1847,30 +1839,42 @@
             wheelEl.classList.remove("spinning");
           }
 
-          const list = getFilteredList();
-          if (!list.length) {
+          const filteredList = getFilteredList();
+          if (!filteredList.length) {
             renderPracticeCard(null, resultEl, theme);
             spinBtn.textContent =
               theme === "energy" ? "⚡ Start spinning" : "🎡 Start spinning";
             return;
           }
 
-          // pick random practice, but always highlight the top icon under pointer
-          const availableList =
-            theme === "energy" && list.length > 1
-              ? list.filter(item => item.id !== lastPracticeId)
-              : list;
+          const slotCount = slotCharacters.length || 1;
+          const degreesPerSlot = 360 / slotCount;
+          const slotIndex = Math.floor(Math.random() * slotCount);
+          const characterName = slotCharacters[slotIndex] || slotCharacters[0];
 
-          const practiceIndex = Math.floor(Math.random() * availableList.length);
-          const chosenPractice = availableList[practiceIndex];
+          const characterMatches = filteredList.filter(
+            practice => practice.character === characterName
+          );
+
+          let selectionPool = characterMatches.length
+            ? characterMatches
+            : practices.filter(practice => practice.character === characterName);
+
+          if (!selectionPool.length) {
+            selectionPool = filteredList;
+          }
+
+          if (theme === "energy" && selectionPool.length > 1 && lastPracticeId) {
+            const withoutLast = selectionPool.filter(p => p.id !== lastPracticeId);
+            if (withoutLast.length) selectionPool = withoutLast;
+          }
+
+          const chosenPractice =
+            selectionPool[Math.floor(Math.random() * selectionPool.length)];
           if (theme === "energy") {
             lastPracticeId = chosenPractice?.id ?? null;
           }
 
-          const slots = wheelEl?.querySelectorAll(".hm-wheel-symbol-slot");
-          const slotCount = slots?.length || 0;
-          const degreesPerSlot = slotCount ? 360 / slotCount : 36;
-          const slotIndex = slotCount ? Math.floor(Math.random() * slotCount) : 0;
           const fullSpins = 3;
           const finalRotation = -(slotIndex * degreesPerSlot) + fullSpins * 360;
 
