@@ -7,9 +7,9 @@
     :root {
       --purple-main: #8A2BE2;
       --purple-alt: #9932CC;
-      --pink-main: #d83b8d;   /* Warm berry rose */
-      --pink-deep: #b22da5;   /* Lush magenta */
-      --pink-bright: #f190c0; /* Blush highlight */
+      --pink-main: #d83d83;   /* Rich rose aligned with headings */
+      --pink-deep: #a92fb4;   /* Deep magenta accent */
+      --pink-bright: #f59ac9; /* Soft blush highlight */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -377,6 +377,26 @@
       gap: 10px;
     }
 
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Controls (filters) inside wheel box */
 
     .hm-controls-box {
@@ -506,19 +526,19 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 16px rgba(216, 59, 141, 0.36),
-        0 0 22px rgba(162, 40, 195, 0.22),
-        inset 0 0 14px rgba(12, 10, 26, 0.82);
-      border-color: rgba(255, 234, 247, 0.92);
+        0 0 14px rgba(216, 61, 131, 0.32),
+        0 0 18px rgba(140, 36, 170, 0.2),
+        inset 0 0 12px rgba(12, 10, 26, 0.86);
+      border-color: rgba(255, 232, 248, 0.9);
       background:
         conic-gradient(
           from -90deg,
-          rgba(216, 59, 141, 0.9) 0deg 60deg,
-          rgba(178, 45, 165, 0.9) 60deg 120deg,
-          rgba(243, 144, 191, 0.94) 120deg 180deg,
-          rgba(189, 79, 196, 0.92) 180deg 240deg,
-          rgba(255, 222, 243, 0.95) 240deg 300deg,
-          rgba(229, 104, 184, 0.9) 300deg 360deg
+          rgba(216, 61, 131, 0.92) 0deg 60deg,
+          rgba(189, 73, 170, 0.92) 60deg 120deg,
+          rgba(240, 134, 190, 0.94) 120deg 180deg,
+          rgba(168, 62, 187, 0.9) 180deg 240deg,
+          rgba(243, 191, 224, 0.95) 240deg 300deg,
+          rgba(212, 79, 160, 0.92) 300deg 360deg
         );
     }
 
@@ -544,6 +564,8 @@
       position: absolute;
       inset: 0;
       z-index: 2;
+      transform: rotate(calc(-1 * var(--icon-rotation, 0deg)));
+      transition: transform 0.65s ease-out;
     }
 
     .hm-wheel-symbol-slot {
@@ -558,7 +580,11 @@
 
     /* Icon color */
     .hm-wheel-visual .hm-wheel-symbol-slot {
-      color: #ffffff;
+      color: var(--gold);
+      filter: grayscale(1) sepia(1) saturate(12) hue-rotate(8deg) brightness(1.1);
+      text-shadow:
+        0 0 8px rgba(239, 216, 160, 0.65),
+        0 0 14px rgba(239, 216, 160, 0.45);
     }
 
     /* 6 positions on wheel */
@@ -585,18 +611,32 @@
     .hm-wheel-symbol-slot.hm-selected {
       font-size: 1.4rem;
       text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.96),
-        0 0 18px rgba(255, 255, 255, 0.9);
+        0 0 12px rgba(239, 216, 160, 0.96),
+        0 0 18px rgba(239, 216, 160, 0.8);
       opacity: 1;
+    }
+
+    .hm-wheel-visual {
+      transform: rotate(var(--wheel-rotation, 0deg));
+      transition: transform 0.65s ease-out;
     }
 
     .hm-wheel-visual.spinning {
       animation: hm-spin 0.7s linear infinite;
     }
 
+    .hm-wheel-visual.spinning .hm-wheel-symbols {
+      animation: hm-spin-counter 0.7s linear infinite;
+    }
+
     @keyframes hm-spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
+    }
+
+    @keyframes hm-spin-counter {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
     }
 
     .hm-spin-btn {
@@ -745,6 +785,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main), #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -1822,7 +1868,8 @@
           if (wheelEl) {
             wheelEl.classList.add("spinning");
             wheelEl.style.transition = "none";
-            wheelEl.style.transform = "rotate(0deg)";
+            wheelEl.style.setProperty("--wheel-rotation", "0deg");
+            wheelEl.style.setProperty("--icon-rotation", "0deg");
             clearSelectedIcon(wheelEl);
           }
           resultEl.innerHTML = `<div class="hm-placeholder">${
@@ -1880,7 +1927,8 @@
 
           if (wheelEl) {
             wheelEl.style.transition = "transform 0.65s ease-out";
-            wheelEl.style.transform = `rotate(${finalRotation}deg)`;
+            wheelEl.style.setProperty("--wheel-rotation", `${finalRotation}deg`);
+            wheelEl.style.setProperty("--icon-rotation", `${finalRotation}deg`);
           }
 
           highlightIconAtIndex(wheelEl, slotIndex);
