@@ -337,6 +337,26 @@
       gap: 10px;
     }
 
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Controls (filters) inside wheel box */
 
     .hm-controls-box {
@@ -447,16 +467,16 @@
       background:
         conic-gradient(
           from -90deg,
-          rgba(138, 43, 226, 0.5) 0deg 36deg,
-          rgba(153, 50, 204, 0.4) 36deg 72deg,
-          rgba(111, 66, 193, 0.5) 72deg 108deg,
-          rgba(138, 43, 226, 0.5) 108deg 144deg,
-          rgba(153, 50, 204, 0.4) 144deg 180deg,
-          rgba(111, 66, 193, 0.5) 180deg 216deg,
-          rgba(138, 43, 226, 0.5) 216deg 252deg,
-          rgba(153, 50, 204, 0.4) 252deg 288deg,
-          rgba(111, 66, 193, 0.5) 288deg 324deg,
-          rgba(138, 43, 226, 0.5) 324deg 360deg
+          rgba(138, 43, 226, 0.78) 0deg 36deg,
+          rgba(153, 50, 204, 0.72) 36deg 72deg,
+          rgba(255, 105, 180, 0.8) 72deg 108deg,
+          rgba(255, 182, 193, 0.78) 108deg 144deg,
+          rgba(138, 43, 226, 0.78) 144deg 180deg,
+          rgba(153, 50, 204, 0.72) 180deg 216deg,
+          rgba(255, 105, 180, 0.8) 216deg 252deg,
+          rgba(255, 182, 193, 0.78) 252deg 288deg,
+          rgba(138, 43, 226, 0.78) 288deg 324deg,
+          rgba(153, 50, 204, 0.72) 324deg 360deg
         );
     }
 
@@ -478,15 +498,15 @@
         conic-gradient(
           from -90deg,
           rgba(255, 88, 199, 0.9) 0deg 36deg,
-          rgba(163, 43, 255, 0.85) 36deg 72deg,
-          rgba(255, 133, 230, 0.88) 72deg 108deg,
-          rgba(252, 181, 110, 0.85) 108deg 144deg,
+          rgba(163, 43, 255, 0.86) 36deg 72deg,
+          rgba(255, 133, 230, 0.9) 72deg 108deg,
+          rgba(247, 238, 255, 0.94) 108deg 144deg,
           rgba(255, 88, 199, 0.9) 144deg 180deg,
-          rgba(163, 43, 255, 0.85) 180deg 216deg,
-          rgba(255, 133, 230, 0.88) 216deg 252deg,
-          rgba(252, 181, 110, 0.85) 252deg 288deg,
+          rgba(163, 43, 255, 0.86) 180deg 216deg,
+          rgba(255, 133, 230, 0.9) 216deg 252deg,
+          rgba(247, 238, 255, 0.94) 252deg 288deg,
           rgba(255, 88, 199, 0.9) 288deg 324deg,
-          rgba(163, 43, 255, 0.85) 324deg 360deg
+          rgba(163, 43, 255, 0.86) 324deg 360deg
         );
     }
 
@@ -730,6 +750,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main), #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
