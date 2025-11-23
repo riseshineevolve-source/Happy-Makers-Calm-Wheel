@@ -7,9 +7,9 @@
     :root {
       --purple-main: #8A2BE2;
       --purple-alt: #9932CC;
-      --pink-main: #d7acc4;   /* Muted blush highlight */
-      --pink-deep: #a53e6b;   /* Deep berry accent */
-      --pink-bright: #8d2f5f; /* Rich plum-rose accent */
+      --pink-main: #ff58c7;   /* Vivid neon blush */
+      --pink-deep: #a32bff;   /* Electric violet */
+      --pink-bright: #ff85e6; /* Soft electric rose */
       --gold: #efd8a0;
       --bg-deep: #05030d;
       --text-main: #fdf7ff;
@@ -119,10 +119,10 @@
     }
 
     .hm-tab-indicator.hm-energy {
-      background: linear-gradient(45deg, var(--pink-bright), var(--pink-deep));
-      box-shadow: 0 0 12px rgba(141, 47, 95, 0.42),
-                  0 0 18px rgba(215, 172, 196, 0.28),
-                  inset 0 0 14px rgba(255, 215, 0, 0.14);
+      background: linear-gradient(45deg, var(--pink-main), var(--pink-deep));
+      box-shadow: 0 0 14px rgba(255, 88, 199, 0.38),
+                  0 0 20px rgba(163, 43, 255, 0.28),
+                  inset 0 0 12px rgba(255, 206, 122, 0.18);
     }
 
     .hm-panel {
@@ -175,13 +175,13 @@
 
     .hm-wheel-box--energy {
       background:
-        radial-gradient(circle at top left, rgba(215, 172, 196, 0.12), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(239, 216, 160, 0.12), transparent 55%),
-        rgba(5, 3, 20, 0.92);
-      border: 3px solid var(--pink-bright);
+        radial-gradient(circle at top left, rgba(255, 88, 199, 0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(163, 43, 255, 0.14), transparent 55%),
+        rgba(5, 3, 20, 0.94);
+      border: 3px solid var(--pink-main);
       box-shadow:
-        0 0 16px rgba(141, 47, 95, 0.36),
-        0 0 22px rgba(215, 172, 196, 0.18);
+        0 0 18px rgba(255, 88, 199, 0.35),
+        0 0 26px rgba(163, 43, 255, 0.22);
     }
 
     .hm-wheel-title {
@@ -203,7 +203,7 @@
     #energy-panel .hm-wheel-title,
     #energy-panel .hm-info-title,
     #energy-panel .hm-result-main-title {
-      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main));
+      background: linear-gradient(45deg, var(--pink-main), var(--pink-deep));
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -215,6 +215,26 @@
       max-width: 700px;
       text-align: justify;
       line-height: 1.5;
+    }
+
+    .hm-wheel-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hm-wheel-visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hm-wheel-info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .hm-wheel-layout {
@@ -334,8 +354,8 @@
     }
 
     .hm-wheel-box--energy .hm-controls-box {
-      border-color: rgba(141, 47, 95, 0.62);
-      box-shadow: 0 0 12px rgba(141, 47, 95, 0.22);
+      border-color: rgba(255, 88, 199, 0.65);
+      box-shadow: 0 0 12px rgba(163, 43, 255, 0.25);
     }
 
     .hm-controls-label {
@@ -381,8 +401,8 @@
     }
 
     .hm-filter-btn--energy.hm-active {
-      background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
-      border: 1px solid rgba(141, 47, 95, 0.7);
+      background: linear-gradient(135deg, var(--pink-main), var(--pink-deep));
+      border: 1px solid rgba(255, 88, 199, 0.7);
     }
 
     /* Wheel visual */
@@ -450,23 +470,23 @@
 
     .hm-wheel-visual--energy {
       box-shadow:
-        0 0 14px rgba(141, 47, 95, 0.38),
-        0 0 20px rgba(215, 172, 196, 0.22),
-        inset 0 0 16px rgba(12, 10, 26, 0.82);
-      border-color: rgba(249, 232, 238, 0.9);
+        0 0 16px rgba(255, 88, 199, 0.35),
+        0 0 22px rgba(163, 43, 255, 0.22),
+        inset 0 0 14px rgba(12, 10, 26, 0.82);
+      border-color: rgba(255, 234, 247, 0.92);
       background:
         conic-gradient(
           from -90deg,
-          rgba(141, 47, 95, 0.9) 0deg 36deg,
-          rgba(92, 34, 80, 0.82) 36deg 72deg,
-          rgba(165, 62, 107, 0.86) 72deg 108deg,
-          rgba(215, 172, 196, 0.88) 108deg 144deg,
-          rgba(141, 47, 95, 0.9) 144deg 180deg,
-          rgba(92, 34, 80, 0.82) 180deg 216deg,
-          rgba(165, 62, 107, 0.86) 216deg 252deg,
-          rgba(215, 172, 196, 0.88) 252deg 288deg,
-          rgba(141, 47, 95, 0.9) 288deg 324deg,
-          rgba(92, 34, 80, 0.82) 324deg 360deg
+          rgba(255, 88, 199, 0.9) 0deg 36deg,
+          rgba(163, 43, 255, 0.85) 36deg 72deg,
+          rgba(255, 133, 230, 0.88) 72deg 108deg,
+          rgba(252, 181, 110, 0.85) 108deg 144deg,
+          rgba(255, 88, 199, 0.9) 144deg 180deg,
+          rgba(163, 43, 255, 0.85) 180deg 216deg,
+          rgba(255, 133, 230, 0.88) 216deg 252deg,
+          rgba(252, 181, 110, 0.85) 252deg 288deg,
+          rgba(255, 88, 199, 0.9) 288deg 324deg,
+          rgba(163, 43, 255, 0.85) 324deg 360deg
         );
     }
 
@@ -511,7 +531,7 @@
 
     /* Energy icons color */
     .hm-wheel-visual--energy .hm-wheel-symbol-slot {
-      color: #f7eaf1;
+      color: #fff1fa;
     }
 
     /* 10 positions on wheel (pizza) */
@@ -580,8 +600,8 @@
 
     .hm-spin-btn--energy {
       background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
-      box-shadow: 0 8px 18px rgba(141, 47, 95, 0.45);
-      border: 1px solid rgba(141, 47, 95, 0.62);
+      box-shadow: 0 8px 18px rgba(255, 88, 199, 0.4);
+      border: 1px solid rgba(255, 88, 199, 0.68);
     }
 
     .hm-spin-btn:active {
@@ -605,7 +625,7 @@
       gap: 12px;
       align-items: stretch;
       max-width: 440px;
-      margin: -14px auto 0;
+      margin: -28px auto 0;
       align-self: flex-start;
       padding-top: 0;
     }
@@ -623,10 +643,10 @@
     }
 
     .hm-info-bar--energy {
-      border-color: rgba(141, 47, 95, 0.75);
+      border-color: rgba(255, 88, 199, 0.75);
       box-shadow:
-        0 0 12px rgba(141, 47, 95, 0.28),
-        inset 0 0 9px rgba(141, 47, 95, 0.2);
+        0 0 12px rgba(163, 43, 255, 0.24),
+        inset 0 0 9px rgba(255, 88, 199, 0.18);
     }
 
     .hm-info-title {
@@ -676,10 +696,10 @@
     }
 
     .hm-result-card--energy {
-      border: 3px solid var(--pink-bright);
+      border: 3px solid var(--pink-main);
       box-shadow:
-        0 0 18px rgba(141, 47, 95, 0.42),
-        0 0 28px rgba(215, 172, 196, 0.3);
+        0 0 18px rgba(255, 88, 199, 0.38),
+        0 0 26px rgba(163, 43, 255, 0.24);
     }
 
     .hm-pill-row {
@@ -710,6 +730,12 @@
       margin: 0 0 4px;
       text-align: center;
       background: linear-gradient(45deg, #8A2BE2, #ff69b4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hm-result-card--energy .hm-result-title {
+      background: linear-gradient(45deg, var(--pink-bright), var(--pink-main), #efd8a0);
       -webkit-background-clip: text;
       color: transparent;
     }
